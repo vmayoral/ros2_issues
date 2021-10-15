@@ -39,4 +39,7 @@ RUN /bin/bash -c ". /opt/ros/$DISTRO/setup.bash \
 WORKDIR /opt
 COPY fastrtps.conf cyclonedds.conf /opt/
 
+# ENV ROS_LOCALHOST_ONLY=0
+ENV ROS_LOCALHOST_ONLY=1
+
 ENTRYPOINT ["/usr/bin/byobu", "-f", "cyclonedds.conf", "attach"]
